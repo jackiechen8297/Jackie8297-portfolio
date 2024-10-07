@@ -73,10 +73,10 @@ span{
 }
 .btn-1{
     padding: 15 px 28px;
-    background-color:black;
+    background-color:rgb(17, 1, 1);
     color: white;
     border:2px solid transparent;
-    border-radius: 4%;
+    border-radius: 9;
     font-size: 16px;
     letter-spacing: 1px;
     font-weight: 600;
@@ -121,6 +121,34 @@ span{
         padding: 20px;
     }
 }
+
+/* footer styling*/
+footer {
+    background:rgba(8, 74, 8, 0.706);
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-content {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  
+  .footer-content p {
+    margin: 5px 0;
+  }
+  
+  .footer-content a {
+    color: #e5e9ed;
+    text-decoration: none;
+  }
+  
+  .footer-content a:hover {
+    text-decoration: underline;
+  }
+
+
 /* css styling for plant identifier page below */
 
 /* Container that holds both the image and buttons */
@@ -171,7 +199,7 @@ span{
 
 /*stlying for case study page */
 .intro{
-    background-color: #f4f2f2;
+    background-color: #ede1e1;
     padding: 50px;
     text-align: center;
     margin-top: 50px;
