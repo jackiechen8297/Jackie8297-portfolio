@@ -1,12 +1,22 @@
-// Function to handle the "Submit" button click
-function handleSubmitButtonClick() {
-    // code will go here
-}
+//hamburger menu bar//
+function toggleMenu() {
 
-// Adding the event listener to the Submit button
-document.querySelector('.btn-4').addEventListener('click', handleSubmitButtonClick);
+    let menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+  }
+
+ axios.get('https://dummyjson.com/recipes')
+ .then(function (response){
+    console.log(response)
+ })
+.catch(function (error){
+    console.log(error)
+  })
+.finally(function(){
+    console.log("Get request done")
+})
 
 
+     
 
- 
 

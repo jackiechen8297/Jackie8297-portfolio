@@ -6,19 +6,60 @@
     text-decoration: none;
     list-style: none;
 }
-.header{
+
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 35px;
-    background:rgba(8, 74, 8, 0.706);
+    background: rgba(8, 74, 8, 0.706);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
 }
+
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+#menu {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(8, 74, 8, 0.706);
+    backdrop-filter: blur(10px);
+    padding-top: 60px;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu ul li {
+    padding: 16px;
+}
+
+#menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#menu.show {
+    display: block; /* Show when toggled */
+}
+
+
 .logo{
     font-size: 25px;
     color:white;
@@ -122,6 +163,7 @@ span{
     }
 }
 
+
 /* footer styling*/
 footer {
     background:rgba(8, 74, 8, 0.706);
@@ -150,7 +192,6 @@ footer {
 
 
 /* css styling for plant identifier page below */
-
 /* Container that holds both the image and buttons */
 .container {
     position: relative;
@@ -169,16 +210,32 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Ensures the image stays behind the buttons */
+    z-index: 1; /* Ensures the image stays behind the placeholder and buttons */
+}
+
+/* Placeholder image styling */
+.placeholder-image {
+    position: absolute;
+    top: 50%;                  /* Center vertically */
+    left: 50%;                 /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to the center */
+    z-index: 2;                /* Place above the background image but below the buttons */
+    text-align: center;        /* Center the image */
+}
+
+.placeholder-image img {
+    max-width: 300px; /* Set width to your preference */
+    height: auto;     /* Maintain aspect ratio */
 }
 
 /* Position and style the buttons */
 .buttons {
     position: absolute;
-    top: 50%;                  /* Center vertically */
+    top: 70%;                  /* Position below the image (you can adjust this value) */
     left: 50%;                 /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust to the center */
-    z-index: 2;                /* Place buttons above the background image */
+    z-index: 3;                /* Place buttons above the placeholder image */
+    text-align: center;
 }
 
 .btn-3, .btn-4 {
@@ -197,12 +254,14 @@ footer {
     background-color: #45a049; 
 }
 
-/*stlying for case study page */
-.intro{
+/* Styling for the intro section */
+.intro {
     background-color: #ede1e1;
     padding: 50px;
     text-align: center;
     margin-top: 50px;
 }
+
+
 
 

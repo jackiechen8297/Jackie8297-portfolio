@@ -11,29 +11,29 @@
 </head>
 
 <body>
-    <header class = "header">
-        <a href="#" class="logo"> 
+    <header class="header">
+        <a href="#"gi class="logo"> 
             Jackie
         </a> 
-<!-- make sure to figure out how to connect this html page to the css page?-->
-        <nav class="navbar">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Plant Identifier</a>
-            <a href="#">Case Study</a>
-        </nav>
-
-        
-        
-        <div class="menu-toggle">
-            <i class='bx bx-menu'></i>
+    
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
         </div>
+    </header>
+    
+    <nav id="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plantidentifier.html">Plant Identifier API</a></li>
+          <li><a href="casestudy.html">Case Study</a></li>
+        </ul>
+    </nav>
 
  </header>
 
  <section class="Home">
     <div class ="Home-content">
-        <h3>Hi!</h3>
+        <h3>Hi! 👋</h3>
 
         <h1>I'm<span> Jackie!<br></span> an aspiring data analyst</h1>
 
@@ -54,22 +54,22 @@
 
 
 
-
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
- <script src = "script.js"> </script>
-</body>
+ 
 
 <footer>
     <div class="footer-content">
       <p><strong>Jackie Chen</strong></p>
-      <p>Aspiring Data Analyst</p>
       <p>Email: <a href="mailto:jackiechen8297@gmail.com">jackiechen8297@gmail.com</a></p>
       <p>Phone: <a href="tel:+19175171859">+1 (917) 517-1859</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/jackie-chen-910442195/">LinkedIn</a></p>
 
     </div>
 </footer>
-  
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src = "script.js"> </script>
+
+</body>
 
 </html>
