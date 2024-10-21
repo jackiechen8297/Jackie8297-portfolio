@@ -213,55 +213,61 @@ footer {
     z-index: 1; /* Ensures the image stays behind the placeholder and buttons */
 }
 
-/* Placeholder image styling */
-.placeholder-image {
-    position: absolute;
-    top: 50%;                  /* Center vertically */
-    left: 50%;                 /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to the center */
-    z-index: 2;                /* Place above the background image but below the buttons */
-    text-align: center;        /* Center the image */
-}
-
-.placeholder-image img {
-    max-width: 300px; /* Set width to your preference */
-    height: auto;     /* Maintain aspect ratio */
-}
-
-/* Position and style the buttons */
-.buttons {
-    position: absolute;
-    top: 70%;                  /* Position below the image (you can adjust this value) */
-    left: 50%;                 /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to the center */
-    z-index: 3;                /* Place buttons above the placeholder image */
-    text-align: center;
-}
-
-.btn-3, .btn-4 {
-    padding: 10px 20px;        
-    margin: 5px;               
-    background-color: #4CAF50; 
-    color: white;              
-    border: none;              
-    border-radius: 5px;        
-    cursor: pointer;           
-    font-size: 16px;           
-    transition: background-color 0.3s ease; 
-}
-
-.btn-3:hover, .btn-4:hover {
-    background-color: #45a049; 
-}
-
+/* case study styling */
 /* Styling for the intro section */
 .intro {
     background-color: #ede1e1;
-    padding: 50px;
+    padding: 60px;
     text-align: center;
     margin-top: 50px;
 }
 
+/* table of contents  */
+.Table-of-Contents {
+    padding: 15px;
+    margin: 20px auto; /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center contents horizontally */
+    text-align: center; /* Center text inside */
+}
 
+section {
+    margin-bottom: 20px; /* Adds space below each section */
+    padding: 20px; /* Adds space inside each section */
+}
+
+/* Add spacing between headings and paragraphs */
+section h2, section h3, section p, section ul {
+    margin-top: 5px; /* Adds space above each element */
+    margin-bottom: 19px; /* Adds space below each element */
+}
+
+/* Add spacing between list items */
+section ul li {
+    margin-bottom: 1px; /* Adds space below each list item */
+}
+
+h2 {
+    text-align: center; /* Centers all h2 headings */
+}
+
+/* adjusting the plant id words a bit south */
+.container {
+    margin-top: 50px; /* Adjust this value as needed */
+  }
+   
+
+/* Scrollbar issue fixing */
+ body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 1; /* Allows it to take up remaining space */
+  }
+  
 
 
