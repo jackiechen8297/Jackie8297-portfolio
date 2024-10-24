@@ -51,3 +51,33 @@ console.log(animals[i]);
   </div>
 </body>   -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hamburger Navbar</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">YourLogo</div>
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="case-study.html">Case Study</a></li>
+                <li><a href="plant-identifier.html">Plant Identifier API</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+        <div class="hamburger" onclick="toggleNav()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

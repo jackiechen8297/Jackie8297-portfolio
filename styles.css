@@ -16,9 +16,9 @@
 
 /* hamburger menu bar  */
 .hamburger {
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
-    color: white;
+    color: rgb(9, 0, 0);
 }
 
 #menu {

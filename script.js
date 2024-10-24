@@ -1,36 +1,26 @@
 //hamburger menu bar//
-function toggleMenu() {
+ function toggleMenu() {
 
-    let menu = document.getElementById('menu');
-    menu.classList.toggle('show');
-  }
+   let menu = document.getElementById('menu');
+     menu.classList.toggle('show');
+   }
 
- axios.get('https://dummyjson.com/recipes')
- .then(function (response){
-    console.log(response)
- })
-.catch(function (error){
-    console.log(error)
-  })
-.finally(function(){
-    console.log("Get request done")
-})
-
-// plant id api page // 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('#navbar ul');
-    console.log(menuToggle)
+//  axios.get('https://dummyjson.com/recipes')
+//  .then(function (response){
+//     console.log(response)
+//  })
+// .catch(function (error){
+//     console.log(error)
+//   })
+// .finally(function(){
+//     console.log("Get request done")
+// })
 
 
-    menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-//function to upload photo 
 
     function uploadAndIdentifyPlantID(){
     //retrieve photo from the frontend
-    const photoInput = document.getElementByID('photoInput');
+    const photoInput = document.getElementById('photoInput');
 
 //if no photos are selected , it alerts the user to upload a photo    
     if(photoInput.files.length === 0) {
@@ -45,7 +35,7 @@ function toggleMenu() {
 
 //set up event handler for the onload for the file reader
 // object on the onload event is triggered when the reading operation of the file is completed
-    reader.onLoad = function (e) {
+    reader.onload = function (e) {
 //store the base64image in a variable
     const base64Image = e.target.result;
     console.log('base64Image',base64Image);
@@ -56,7 +46,7 @@ function toggleMenu() {
     const latitude = 49.207;
     const longitude = 16.608;
     const health = 'all';
-    const similiarImages = true; 
+    const similarImages = true; 
     const details = 'common_names,url,description,taxonomy,rank,gbif_id,inaturalist_id,image,synonyms,edible_parts,watering,propagation_methods,treatment,cause'
     const language = 'en';
     const apiUrlPlantID = `https://plant.id/api/v3/identification?details=${details}&language=${language}`;
@@ -67,8 +57,8 @@ function toggleMenu() {
         'latitude': latitude,
         'longitude': longitude,
         'health': health,
-        'similar_images': similiarImages,
-    },{
+        'similar_images': similarImages,
+   },{
       headers: {
         'Api-Key': apiKey,
         'Content-Type': "application/json"
@@ -77,11 +67,11 @@ function toggleMenu() {
     //succesful state of promise
     .then(function (response) {
         console.log('Response from Plant ID API',response.data);
-        displayPlantIDInfo(response.data,base64image);
+        displayPlantIDInfo(response.data,base64Image);
     })
     //error state of promise
     .catch(function(error) {
-        alert(`Error:${error.response.data}❌❌❌`);
+        alert(`Error:${error}❌❌❌`);
         console.error('Error', error);
     });
 };
@@ -90,13 +80,13 @@ function toggleMenu() {
     reader.readAsDataURL(selectedFile);
 }
 
-function displayPlantIDInfo(plantIdResponse,base64image){
+function displayPlantIDInfo(plantIdResponse,base64Image){
     
-//variable to store firt suggestion 
+//variable to store first suggestion 
 
 
 
-    const plantIdClassification = plantIdResponse.result.plantIdClassification;
+    const plantIdClassification = plantIdResponse.result.classification;
     const plantIdDisease = plantIdResponse.result.disease;
     const plantIdIsHealthy = plantIdResponse.result.is_healthy;
     const plantIdIsPlant = plantIdResponse.result.is_plant;
@@ -104,7 +94,7 @@ function displayPlantIDInfo(plantIdResponse,base64image){
           //plan preview image 
 
     //grab the preview image element from the front plantidentifier.html
-    const previewImage = document.getElementByID('previewImage')
+    const previewImage = document.getElementById('previewImage')
     //set the image HTML src attribute to the preview image we uploaded on the plantidentifier html file
     previewImage.src = base64Image
 
@@ -115,7 +105,7 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     //create a new <p> tag element for the plant title 
     const plantNameElement = document.createElement('p');
     //add the name of the plant to the innerHTML of the <p> tag we created 
-    plantNameElement.innerhtml = `<strong> Name: </strong>${plantIdClassification.suggestions[0].name}`
+    plantNameElement.innerHTML = `<strong> Name: </strong>${plantIdClassification.suggestions[0].name}`
 
     //append the new div we created to the api result container 
     plantNameContainer.appendChild(plantNameElement);
@@ -134,13 +124,13 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     //PROBABILITY 
 
     //grab the probability score from the API response 
-    const probabilityOfPlantId = Classification.suggestions[0].probability;
+    const probabilityOfPlantId = plantIdClassification.suggestions[0].probability;
     //grab the HTML where the probability will be placed
     const probabilityNameContainer = document.getElementById('probability-container');
     //create a new <p> tag element for the probability text
     const probabilityNameElement = document.createElement('p');
     //add the probability text to the innnerHTML of the new <p> tag created
-    probabilityNameElement.innerHTML = `<strong> Probability: </strong>${probabilityOfPlant}`;
+    probabilityNameElement.innerHTML = `<strong> Probability: </strong>${probabilityOfPlantId}`;
     //append the new div we created to the probabilityNameContainer we grabbed from html
     probabilityNameContainer.appendChild(probabilityNameElement);
 
@@ -164,6 +154,7 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     isPlantContainer.appendChild(isPlantElement)
 
     //COMMON NAME 
+if(plantIdClassification.suggestions[0].details.common_names !== null){
     //grab the first common name from the api response 
     const commonName = plantIdClassification.suggestions[0].details.common_names[0];
     //grab the HTML where the common name will be placed
@@ -171,9 +162,10 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     //create a new <p> tag element for the common name text
     const commonNameElement = document.createElement('p');
     //add the common name text to the inner html of the new <p> tag we created
-    commonNameElement.innerHTML = `<strong>Common Name: </strong> $(commonName)`;
+    commonNameElement.innerHTML = `<strong>Common Name: </strong> ${commonName}`;
     //appned the new div we created to the commonnamecontainer
     commonNameContainer.appendChild(commonNameElement);
+}
 
 
     //DESCRIPTION
@@ -193,7 +185,7 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     //grab value from api response
     const plantHealhStatus = plantIdIsHealthy.binary;
     //grab the container from frontend
-    const plantHealthStatusContainer = document.getElementById('plant-healh-status-container');
+    const plantHealthStatusContainer = document.getElementById('plant-health-status-container');
     //create a new p tag element 
     const plantHealthStatusElement = document.createElement('p');
     //add the text to the inner html of the new p tage we created 
@@ -208,7 +200,7 @@ function displayPlantIDInfo(plantIdResponse,base64image){
     //grab html where img will be placed
     const similarImageWithDiseaseHTML= document.getElementById('plant-similar-image-with-disease');
     //set the image html src attribute to the image
-    SimilarImageWithDiseaseHTML.src = plantSimilarImageWithDisease;
+    similarImageWithDiseaseHTML.src = plantSimilarImageWithDisease;
 
 
     //DISEASE NAME
@@ -283,6 +275,8 @@ function displayPlantIDInfo(plantIdResponse,base64image){
   }
 }
     }
+
+
 
    
 

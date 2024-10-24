@@ -11,7 +11,7 @@
 
     </head>
 
-<body> 
+<body>
     <header class = "header"> 
         <a href="#" class="logo"> 
             Plant Identifier API
@@ -26,67 +26,72 @@
                 <li><a href="casestudy.html">Case Study</a></li>
               </ul>
             </nav>
-          </header>
-          
+        </header>
     </header>
 
-        <!-- 1st Row -->
-        <div class="container">
-          <div class='row pt-5 mt-5 text-center'>
-            <div class='col'>
-              <h1>Plant Identifier</h1>
+    <div class="container">
+        <div class='row pt-5 text-center'>
+          <div class='col'>
+            <h1>Plant Identifier</h1>
+          </div>
+        </div>
+        <div class='row pt-3 justify-content-center'>
+          <div class='col-3 d-flex justify-content-end'>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="photoInput" accept="image/*" required>
+              <label class="custom-file-label" for="photoInput"></label>
             </div>
           </div>
-          <div class='row pt-4 justify-content-center'> 
-            <div class='col-3 d-flex justify-content-end'>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="photoInput" accept="image/*" required>
-                    <label class="custom-file-label" for="photoInput"></label>
+          <div class="col-3">
+            <button type="button" class="btn btn-success" onclick="uploadAndIdentifyPlantID()">Submit</button>
+          </div>
+        </div>
+        <div class='row justify-content-center pt-5'>
+          <div class='col-3 text-center'>
+            <img src="https://fakeimg.pl/600x400/?text=Plant.id🌱&font=lobster" class="img-fluid rounded" alt="..."
+              id='previewImage'>
+          </div>
+        </div>
+        <div class='row pt-3 pb-3 justify-content-center'>
+          <div class="col">
+            <!-- Api result will show here  -->
+            <div class="accordion pt-5" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> -->
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <h5>Plant Information</h5>
+                  </button>
+                </h2>
+                <!-- <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"> -->
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <img src="https://fakeimg.pl/300x200/?text=Plant.id🪴&font=lobster" class="rounded" alt="..."
+                      id='plant-similar-image'>
+                    <!-- TEXT BODY GOES HERE VIA API CALL -->
+                    <div id='plant-name-container'></div>
+                    <div id='probability-container'></div>
+                    <div id='isPlant-container'></div>
+                    <div id='common-name-container'></div>
+                    <div id='description-container'></div>
+                    <div id='plant-health-status-container'></div>
                   </div>
-            </div>
-            <div class="col-3">
-              <button type="button" class="btn btn-success" onclick="uploadAndIdentifyPlantID()">Submit</button>
-            </div>
-          </div>
-      
-          <div class='row justify-content-center pt-5'>
-            <div class='col-3 text-center'>
-              <img src='https://fakeimg.pl/300x200/?text=Plant.id' class="img-fluid rounded" alt="..." id='previewImage'>
-            </div>
-          </div>
-      
-          <!-- Api result will show here  -->
-          <div class="accordion pt-5" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelStayOpen-collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <h5>Plant Information</h5>
-                </button>
-              </h2>
-              <div id="panelStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <img src="https://fakeimg.pl/300x200/?text=Plant.id&font=lobster" class="rounded" alt="..." id='plant-similar-image'>
-                  <!-- TEXT BODY GOES HERE VIA API CALL -->
-                  <div id='plant-name-container'></div>
-                  <div id='probability-container'></div>
-                  <div id='isPlant-container'></div>
-                  <div id='common-name-container'></div>
-                  <div id='description-container'></div>
-                  <div id='plant-health-status-container'></div>
                 </div>
               </div>
-            </div>
-            
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <h5>Plant Health Information</h5>
-                </button>
-              </h2>
-              <div id="panelStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> -->
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h5>Plant Health Information</h5>
+                  </button>
+                </h2>
+                <!-- <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"> -->
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <img src="https://fakeimg.pl/300x200/?text=Plant.id&font=lobster" class="rounded" alt="..." id='plant-similar-image-with-disease'>
+                    <img src="https://fakeimg.pl/300x200/?text=Plant.id🪴&font=lobster" class="rounded" alt="..."
+                      id='plant-similar-image-with-disease'>
                     <div id='plant-disease-name-container'></div>
                     <div id='plant-disease-probability'></div>
                     <div id='plant-disease-description'></div>
@@ -97,10 +102,14 @@
             </div>
           </div>
         </div>
-      </body>
-      
-
-
+      </div>
+    
+    
+    
+    
+    
+    
+    
     
       
     
