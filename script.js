@@ -1,9 +1,9 @@
 //hamburger menu bar//
- function toggleMenu() {
+//  function toggleMenu() {
 
-   let menu = document.getElementById('menu');
-     menu.classList.toggle('show');
-   }
+//    let menu = document.getElementById('menu');
+//      menu.classList.toggle('show');
+//  }
 
 //  axios.get('https://dummyjson.com/recipes')
 //  .then(function (response){
@@ -16,7 +16,7 @@
 //     console.log("Get request done")
 // })
 
-
+//plant health identifier 
 
     function uploadAndIdentifyPlantID(){
     //retrieve photo from the frontend
@@ -275,6 +275,7 @@ if(plantIdClassification.suggestions[0].details.common_names !== null){
   }
 }
     }
+
 
 
 
