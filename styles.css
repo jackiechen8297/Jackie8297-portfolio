@@ -64,9 +64,10 @@ span{
     min-height: 100vh;  
     background: white;
     display: flex;
-    /* align-items: center; */
+    /* align-items: center; */ 
     gap: 7em;
     padding:30px   
+    
 }
 .Home-content{
     max-width: 860px;
@@ -83,18 +84,7 @@ span{
     margin:25px 0 30px;
 }
 /* landing page contact button */
-.btn-1{
-    padding: 15 px 28px;
-    background-color:rgb(17, 1, 1);
-    color: white;
-    border:2px solid transparent;
-    border-radius: 9;
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: 0.3 ease;
-    cursor:pointer;
-}
+
 .btn-1:hover{
     background-color: white;
     color: black;
@@ -102,18 +92,7 @@ span{
 }
 
 /* landing page resume button */
-.btn-2{
-    padding: 15px 28px;
-    background-color: white;
-    color: black;
-    border:2px solid transparent;
-    border-radius: 4%;
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: 0.3 ease;
-    cursor:pointer;
-}
+
 .btn-2:hover{
     background-color: orangered;
     color: white;
@@ -123,9 +102,9 @@ span{
 .img-box img{
     border-radius: 50%;
     width: 375px;
+    max-width: 100%;
+    height: auto;
 }
-@media screen and (max-width: 768px) {
-    }
 
 
 
@@ -243,11 +222,32 @@ ul {
     text-align: center;    /* Center the text inside the block */
     margin-top: 10px;      /* Adds some space above the link */
 }
-/* css styling for plant identifier page below , upload and submit buttons*/
+
+
+/* Landing page specific container */
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Plant identifier specific container */
+.plant-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Plant identifier button styles */
 .custom-file {
     position: relative;
     display: inline-block;
     width: auto;
+    margin-right: 15px
 }
 
 .custom-file-input {
@@ -259,7 +259,7 @@ ul {
     margin: 0;
     opacity: 0;
     cursor: pointer;
-    z-index: 1; /* Lower z-index than the label */
+    z-index: 1;
 }
 
 .custom-file-label {
@@ -270,18 +270,10 @@ ul {
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 2; /* Higher z-index to stay on top */
+    z-index: 2;
     transition: background-color 0.3s;
 }
 
-.custom-file-label:hover {
-    background-color: rgb(39, 114, 39);
-}
-
-
-
-
-/* Add hover and active effects */
 .custom-file-label:hover {
     background-color: darkgreen;
 }
@@ -290,16 +282,139 @@ ul {
     transform: scale(0.98);
 }
 
-/* Flex container for the two api buttons */
-.col-4.d-flex {
-    gap: 30px; /* Adjust for tighter spacing */
+/* Landing page specific styles */
+.Home-content {
+    flex: 2;
+    text-align: left;
 }
 
-/* navbar spacing */
+.img-box {
+    flex: 1;
+}
+
+.profile-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Navbar styling */
 .header {
     background: rgba(8, 74, 8, 0.706);
     backdrop-filter: blur(10px);
     z-index: 100;
+}
+
+/* Footer Styles */
+footer {
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+    text-align: center;
+}
+
+.footer-name {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links p {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .landing-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 20px;
+    }
+
+    .Home-content {
+        flex: 1;
+        text-align: center;
+    }
+
+    .img-box {
+        width: 80%;
+        margin: 2rem auto;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .footer-content {
+        padding: 1.5rem 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-name, 
+    .footer-links,
+    .footer-links p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+
+    .col-4.d-flex {
+        gap: 30px !important;  /* Increased gap between Upload and Submit buttons */
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Laptop/desktop styles */
+@media screen and (min-width: 1024px) {
+    .landing-container {
+        gap: 4rem;
+    }
+
+    .Home-content {
+        flex: 2;
+        text-align: left;
+    }
+
+    .img-box {
+        flex: 1;
+    }
+
+    .button-group {
+        justify-content: flex-start;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 
