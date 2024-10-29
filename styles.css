@@ -314,6 +314,9 @@ ul {
 /* Footer Styles */
 footer {
     width: 100%;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
 }
 
 .footer-content {
@@ -321,25 +324,67 @@ footer {
     margin: 0 auto;
     padding: 2rem 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-name {
     text-align: center;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    width: 100%;
 }
 
 .footer-links p {
     margin: 0;
     width: 100%;
     text-align: center;
+    word-break: break-word; /* Helps with email wrapping */
 }
+
+.footer-links a {
+    display: inline-block;
+    word-break: break-word;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    .footer-content {
+        padding: 1rem 15px;
+    }
+
+    .footer-name {
+            margin-bottom: 1rem;    /* Removed the 'gi;' */
+            font-size: 0.9rem;
+        }
+    }
+
+    .footer-links {
+        gap: 0.8rem;
+    }
+
+    .footer-links p {
+        padding: 0 10px;
+        font-size: 0.85rem; /* Slightly smaller font size on mobile */
+    }
+
+    .footer-links a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
 
 /* Mobile responsive styles */
 @media screen and (max-width: 768px) {
