@@ -462,5 +462,110 @@ footer {
     }
 }
 
+/* Skills Section Styles */
+.skills-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;  /* Light background to separate from other sections */
+}
+
+.skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.skills-header h2 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: #f7fafc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.skill-name {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.skill-level {
+    width: 100%;
+    background: #edf2f7;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #4299e1;
+    border-radius: 4px;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.skill-card:hover .skill-progress {
+    animation: fillProgress 1s forwards;
+}
+
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: 85%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .skills-header h2 {
+        font-size: 2rem;
+    }
+
+    .skill-card {
+        padding: 15px;
+    }
+}
 
 
